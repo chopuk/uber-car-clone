@@ -3,43 +3,54 @@ import React from 'react'
 import { Dimensions } from 'react-native'
 import { colors,parameters } from '../global/styles'
 import { SafeAreaView } from 'react-native-safe-area-context'
-import { MaterialCommunityIcons } from 'react-native-vector-icons'
+import { MaterialCommunityIcons as Icon } from 'react-native-vector-icons'
 import { filterData } from '../global/data'
 const SCREEN_WIDTH = Dimensions.get('window').width
+
+const uberOptions = ({item}) => (
+  <View style={styles.card}>
+    <View style={styles.view2}>
+      <Image style={styles.image2} source={item.image} />
+    </View>
+    <View>
+      <Text style={styles.title}>{item.name}</Text>
+    </View>
+  </View>
+)
 
 export default function HomeScreen() {
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.header}>
         <View style={styles.icon1}>
-            <MaterialCommunityIcons 
-                name='menu'
-                color={colors.white}
-                size={40}
+            <Icon 
+              name='menu'
+              color={colors.white}
+              size={40}
             />
         </View>
       </View>
       <ScrollView bounces={false}>
         <View style={styles.home}>
-            <Text style={styles.text1}>
-                Destress your commute
-            </Text>
-            <View style={styles.view1}>
-              <View style={styles.view8}>
-                <Text style={styles.text2}> 
-                  Read a book. Take a nap. Stare out the window
-                </Text>
-                <View style={styles.button1}>
-                  <Text style={styles.button1Text}>Ride with Uber</Text>
-                </View>
-              </View>
-              <View>
-                <Image 
-                  style={styles.image1}
-                  source={require('../assets/uberCar.png')}
-                />
+          <Text style={styles.text1}>
+              Destress your commute
+          </Text>
+          <View style={styles.view1}>
+            <View style={styles.view8}>
+              <Text style={styles.text2}> 
+                Read a book. Take a nap. Stare out the window
+              </Text>
+              <View style={styles.button1}>
+                <Text style={styles.button1Text}>Ride with Uber</Text>
               </View>
             </View>
+            <View>
+              <Image 
+                style={styles.image1}
+                source={require('../assets/uberCar.png')}
+              />
+            </View>
+          </View>
         </View>
         <View>
           <FlatList 
@@ -48,34 +59,78 @@ export default function HomeScreen() {
             showsHorizontalScrollIndicator={false}
             data={filterData}
             keyExtractor={(item)=>item.id}
-            renderItem={({item})=>(
-              <View style={styles.card}>
-                <View style={styles.view2}>
-                  <Image style={styles.image2} source={item.image} />
-                </View>
-                <View>
-                  <Text style={styles.title}>{item.name}</Text>
-                </View>
-              </View>
-            )}
+            renderItem={uberOptions}
           />
         </View>
         <View style={styles.view3}>
           <Text style={styles.text3}>Where to?</Text>
           <View style={styles.view4}>
-            <MaterialCommunityIcons 
-                name='clock-time-four'
-                color={colors.grey1}
-                size={26}
+            <Icon 
+              name='clock-time-four'
+              color={colors.grey1}
+              size={26}
             />
             <Text style={{marginLeft:5}}>Now</Text>
-            <MaterialCommunityIcons 
-                name='chevron-down'
-                color={colors.grey1}
-                size={26}
+            <Icon 
+              name='chevron-down'
+              color={colors.grey1}
+              size={26}
             />
           </View>
         </View>
+        <View style={styles.view5}>
+          <View style={styles.view6}>
+            <View style={styles.view7}>
+              <Icon 
+                name='map-marker'
+                color={colors.black}
+                size={26}
+              />
+            </View>
+            <View>
+              <Text style={{fontSize:18,color:colors.black}}>
+                320 Cannock Road
+              </Text>
+              <Text style={{color:colors.grey3, fontSize:14}}>
+                Wolverhampton, West Midlands
+              </Text>
+            </View>
+          </View>
+          <View>
+            <Icon 
+              name='chevron-right'
+              color={colors.grey}
+              size={26}
+            />
+          </View>
+        </View>
+        <View style={{...styles.view5,borderBottomWidth:0}}>
+          <View style={styles.view6}>
+            <View style={styles.view7}>
+              <Icon 
+                name='map-marker'
+                color={colors.black}
+                size={26}
+              />
+            </View>
+            <View>
+              <Text style={{fontSize:18,color:colors.black}}>
+                6 Gross Road
+              </Text>
+              <Text style={{color:colors.grey3, fontSize:14}}>
+                Abbeydale, Redditch
+              </Text>
+            </View>
+          </View>
+          <View>
+            <Icon 
+              name='chevron-right'
+              color={colors.grey}
+              size={26}
+            />
+          </View>
+        </View>
+        <Text style={styles.text4}>Around You</Text>
       </ScrollView>
     </SafeAreaView>
   )
@@ -169,42 +224,42 @@ const styles = StyleSheet.create({
       paddingVertical:2,
       borderRadius:20
     },
-    // view5:{ 
-    //   flexDirection:'row',
-    //   alignItems:'center',
-    //   backgroundColor:'white',
-    //   paddingVertical:25,
-    //   justifyContent:'space-between',
-    //   marginHorizontal:15,
-    //   borderBottomColor:colors.grey4,
-    //   borderBottomWidth:1,
-    //   flex:1
-    // },
-    // view6:{
-    //   alignItems:'center',
-    //   flex:5,
-    //   flexDirection:'row'
-    // },
-    // view7:{
-    //   backgroundColor:colors.grey6,
-    //   height:40,
-    //   width:40,
-    //   borderRadius:20,
-    //   alignItems:'center',
-    //   justifyContent:'center',
-    //   marginRight:20
-    // },
+    view5:{ 
+      flexDirection:'row',
+      alignItems:'center',
+      backgroundColor:'white',
+      paddingVertical:25,
+      justifyContent:'space-between',
+      marginHorizontal:15,
+      borderBottomColor:colors.grey4,
+      borderBottomWidth:1,
+      flex:1
+    },
+    view6:{
+      alignItems:'center',
+      flex:5,
+      flexDirection:'row'
+    },
+    view7:{
+      backgroundColor:colors.grey6,
+      height:40,
+      width:40,
+      borderRadius:20,
+      alignItems:'center',
+      justifyContent:'center',
+      marginRight:20
+    },
     // map:{
     //   height: 150,
     //   marginVertical: 0,
     //   width:SCREEN_WIDTH*0.92
     // },
-    // text4:{ 
-    //   fontSize:20,
-    //   color:colors.black,
-    //   marginLeft:20,
-    //   marginBottom:20
-    // },
+    text4:{ 
+      fontSize:20,
+      color:colors.black,
+      marginLeft:20,
+      marginBottom:20
+    },
     icon1:{
       marginLeft:10,
       marginTop:5
