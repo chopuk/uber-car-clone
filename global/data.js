@@ -1,10 +1,18 @@
-export const filterData = [ 
+export const optionsData = [ 
     {name:'Ride',image: require('../assets/ride.png'), id:'0'},
     {name:'Food',image:require('../assets/food.png'),id:'1'},
     {name:'Package',image:require('../assets/package.png'),id:'2'},
     {name:'Reserve',image:require('../assets/reserve.png'),id:'3'}
                        
 ]
+
+export const recentPlaces = [
+    {street:'320 Cannock Road',area:'Wolverhampton, West Midlands',id:'0'},
+    {street:'6 Gross Road',area:'Abbeydale, Redditch',id:'1'},
+    {street:'Stamford Bridge',area:'Fulham, West London',id:'2'},
+    {street:'Lodge 595',area:'CenterParcs, Nottingham',id:'3'},
+    {street:'Hanger No. 1',area:'RAF Cosford Museum',id:'4'}
+] 
 
 export const rideData = [
     {street:'32 Olivia Rd',area:'Klipfontein 83-Ir,Boksburg',id:'0'},
@@ -106,9 +114,9 @@ export const availableServices = [
 ]
 
 export const carsAround = [
-    {latitude:-26.207487,longitude:28.236226},
-    {latitude:-26.202616,longitude:28.227718},
-    {latitude:-26.202424,longitude:28.236612},
-    {latitude:-26.208565,longitude:28.237191},
-    {latitude:-26.203598,longitude:28.239509}
+    {latitude:52.610163,longitude:-2.095599},
+    {latitude:52.606045,longitude:-2.096844},
+    {latitude:52.614202,longitude:-2.104697},
+    {latitude:52.602840,longitude:-2.105598},
+    {latitude:52.604091,longitude:-2.081480}
 ]
