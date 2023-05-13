@@ -1,7 +1,7 @@
 @echo off
 cls
-copy /y gitignore\gitignore.github .gitignore
-copy /y appjson\app.github app.json
+rem copy /y gitignore\gitignore.github .gitignore
+rem copy /y appjson\app.github app.json
 echo Pushing changes to GitHub..
 echo.
 git add .
