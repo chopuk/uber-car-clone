@@ -1,8 +1,9 @@
-import { Image, StyleSheet, View, Text } from 'react-native'
+import { Image, StyleSheet, View, Text, TouchableOpacity } from 'react-native'
 import React from 'react'
 import { colors } from '../../global/styles'
 
-const SubHeader = () => {
+const SubHeader = ({navigation}) => {
+
   return (
     <View style={styles.home}>
       <Text style={styles.text1}>
@@ -13,9 +14,12 @@ const SubHeader = () => {
           <Text style={styles.text2}> 
             Read a book. Take a nap. Stare out the window
           </Text>
-          <View style={styles.button}>
-            <Text style={styles.buttonText}>Ride with Uber</Text>
-          </View>
+          <TouchableOpacity onPress={()=>navigation.navigate('RequestScreen')}>
+             <View style={styles.button}>
+                <Text style={styles.buttonText}>Ride with Uber</Text>
+             </View>
+          </TouchableOpacity>
+         
         </View>
         <View>
           <Image 
@@ -26,9 +30,11 @@ const SubHeader = () => {
       </View>
     </View>
   )
+
 }
 
 const styles = StyleSheet.create({
+
   home:{
     backgroundColor:colors.blue,
     paddingLeft:20,
@@ -70,6 +76,7 @@ const styles = StyleSheet.create({
     height:100,
     width:100,
   }
+
 })
 
 export default SubHeader

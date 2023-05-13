@@ -4,6 +4,7 @@ import { colors, parameters } from '../../global/styles'
 import { MaterialCommunityIcons as Icon } from 'react-native-vector-icons'
 
 const Header = () => {
+
   return (
     <View style={styles.header}>
         <View style={styles.icon}>
@@ -15,9 +16,11 @@ const Header = () => {
         </View>
     </View>
   )
+
 }
 
 const styles = StyleSheet.create({
+
     header:{
         backgroundColor:colors.blue,
         height:parameters.headerHeight,
@@ -27,6 +30,7 @@ const styles = StyleSheet.create({
         marginLeft:10,
         marginTop:5
     }
+    
 })
 
 export default Header

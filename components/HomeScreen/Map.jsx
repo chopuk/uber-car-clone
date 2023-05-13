@@ -6,14 +6,16 @@ import { carsAround } from '../../global/data'
 const SCREEN_WIDTH = Dimensions.get('window').width
 
 const Map = ({location}) => {
+
   const mapRef = useRef(1)
+
   return (
     <MapView
         ref={mapRef}
         provider={PROVIDER_GOOGLE}
         region={{
-            latitude: location.coords.latitude,
-            longitude: location.coords.longitude,
+            latitude: location.latitude,
+            longitude: location.longitude,
             latitudeDelta: 0.0058,
             longitudeDelta: 0.0026,
         }}
@@ -36,9 +38,11 @@ const Map = ({location}) => {
         )}
     </MapView>
   )
+
 }
 
 const styles = StyleSheet.create({
+
     map:{
         height: 500,
         marginVertical: 0,
@@ -48,6 +52,7 @@ const styles = StyleSheet.create({
         width: 28,
         height: 14,
     }
+    
 })
 
 export default Map

@@ -10,7 +10,8 @@ import WhereTo from '../components/HomeScreen/WhereTo'
 import RecentPlaces from '../components/HomeScreen/RecentPlaces'
 import Map from '../components/HomeScreen/Map'
 
-export default function HomeScreen() {
+export default function HomeScreen({navigation}) {
+
   const [location, setLocation] = useState(null)
   const [errorMsg, setErrorMsg] = useState(null)
   const [loading,setLoading] = useState(true)
@@ -23,18 +24,19 @@ export default function HomeScreen() {
         return
       }
       let locationData = await Location.getCurrentPositionAsync({})
-      setLocation(locationData)
+      setLocation({latitude: locationData.coords.latitude, longitude: locationData.coords.longitude})
       setLoading(false)
     })()
   }, [])
+
   return (
     <SafeAreaView style={styles.container}>
       <Header/>
       <ScrollView bounces={false}>
-        <SubHeader/>
+        <SubHeader navigation={navigation}/>
         <UberOptions/>
         <WhereTo/>
-        <RecentPlaces/>
+        <RecentPlaces setLocation={setLocation}/>
         <Text style={styles.around}>Around You</Text>
         <View style={{alignItems:'center',justifyContent:'center'}}>
           {!loading &&
@@ -45,6 +47,7 @@ export default function HomeScreen() {
       </ScrollView>
     </SafeAreaView>
   )
+
 }
 
 const styles = StyleSheet.create({
@@ -58,4 +61,5 @@ const styles = StyleSheet.create({
       marginLeft:20,
       marginBottom:20
     }
+
 })

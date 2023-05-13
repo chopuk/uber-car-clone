@@ -4,6 +4,7 @@ import { colors } from '../../global/styles'
 import { MaterialCommunityIcons as Icon } from 'react-native-vector-icons'
 
 const WhereTo = () => {
+
   return (
     <View style={styles.view1}>
         <Text style={styles.text}>Where to?</Text>
@@ -22,9 +23,11 @@ const WhereTo = () => {
         </View>
     </View>
   )
+
 }
 
 const styles = StyleSheet.create({
+
     view1:{
         flexDirection:'row',
         marginTop :5,
@@ -48,6 +51,7 @@ const styles = StyleSheet.create({
         fontSize:18,
         color:colors.black
     }
+
 })
 
 export default WhereTo

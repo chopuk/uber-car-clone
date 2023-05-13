@@ -5,6 +5,7 @@ import { optionsData } from '../../global/data'
 const SCREEN_WIDTH = Dimensions.get('window').width
 
 const uberOptions = ({item}) => (
+
     <View style={styles.card}>
       <View style={styles.view}>
         <Image style={styles.image} source={item.image} />
@@ -13,9 +14,11 @@ const uberOptions = ({item}) => (
         <Text style={styles.title}>{item.name}</Text>
       </View>
     </View>
+
 )
 
 const UberOptions = () => {
+
   return (
     <View>
         <FlatList
@@ -26,11 +29,13 @@ const UberOptions = () => {
             keyExtractor={(item)=>item.id}
             renderItem={uberOptions}
         />
-  </View>
+    </View>
   )
+
 }
 
 const styles = StyleSheet.create({
+
     image:{
         height:60,
         width:60,
@@ -49,6 +54,7 @@ const styles = StyleSheet.create({
         color:colors.black,
         fontSize:16
     }
+    
 })
 
 export default UberOptions

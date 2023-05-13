@@ -5,6 +5,7 @@ import { MaterialCommunityIcons as Icon } from 'react-native-vector-icons'
 import { recentPlaces } from '../../global/data'
 
 const RecentPlace = ({place}) => (
+
     <View style={styles.view1}>
         <View style={styles.view2}>
             <View style={styles.view3}>
@@ -23,17 +24,19 @@ const RecentPlace = ({place}) => (
                 </Text>
             </View>
         </View>
-    <View>
-      <Icon 
-        name='chevron-right'
-        color={colors.grey}
-        size={26}
-      />
-    </View>
+        <View>
+            <Icon 
+                name='chevron-right'
+                color={colors.grey}
+                size={26}
+            />
+        </View>
   </View>
+
 )
 
 const RecentPlaces = () => {
+
   return (
     <View>
         <ScrollView
@@ -45,9 +48,11 @@ const RecentPlaces = () => {
         </ScrollView>
     </View>
   )
+
 }
 
 const styles = StyleSheet.create({
+
     view1:{ 
         flexDirection:'row',
         alignItems:'center',
@@ -73,6 +78,7 @@ const styles = StyleSheet.create({
         justifyContent:'center',
         marginRight:20
     }
+
 })
 
 export default RecentPlaces

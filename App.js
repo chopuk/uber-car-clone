@@ -1,8 +1,8 @@
-import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 import { StatusBar } from 'expo-status-bar'
 import * as SplashScreen from 'expo-splash-screen'
-import HomeScreen from './screens/HomeScreen'
+import RootNavigator from './navigation/RootNavigator'
+import { DestinationContextProvider, OriginContextProvider } from './state/contexts'
 
 // keep the splash screen visible while we fetch resources
 SplashScreen.preventAutoHideAsync()
@@ -15,18 +15,15 @@ const App = () => {
   }, 2000)
 
   return (
-    <View style={styles.container}>
+    <>
       <StatusBar barStyle = 'light-content' hidden ={false} backgroundColor = '#35a4e8' translucent ={true}/>
-      <HomeScreen/>
-    </View>
+      <DestinationContextProvider>
+        <OriginContextProvider>
+          <RootNavigator/>
+        </OriginContextProvider>
+      </DestinationContextProvider>
+    </>
   )
 }
 
 export default App
-
-const styles = StyleSheet.create({
-  container:{
-    flex:1,
-    backgroundColor:'white'
-  }
-})
